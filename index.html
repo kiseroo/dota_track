@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOTA+Tracker</title>
+    <meta name="description" content="Track Dota 2 player statistics, match history and performance metrics using DOTA+Tracker">
+    <meta name="keywords" content="dota 2, dota stats, dota tracker, dota2 match history">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota2_social.jpg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cinematic video background with better mobile support -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="background-video" poster="https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt29d7c4f6bc077e9e/5eaa06851b51e36d7c1b5ba4/homepage-header.jpg">
+            <!-- Higher quality sources first -->
+            <source src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4" type="video/mp4">
+            <!-- Smaller size backup source for mobile -->
+            <source src="https://steamcdn-a.akamaihd.net/apps/dota2/videos/dota_react/international2023/95second_memorysequence.webm" type="video/webm">
+        </video>
+        <!-- Higher quality fallback image -->
+        <img src="https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt29d7c4f6bc077e9e/5eaa06851b51e36d7c1b5ba4/homepage-header.jpg" alt="Dota 2 Heroes" class="fallback-image">
+    </div>
+    
+    <div class="overlay"></div>
+    
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/global/dota2_logo_horiz.png" alt="DOTA+Tracker">
+                <h1>DOTA<span class="plus-symbol">+</span>Tracker</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="player-input" placeholder="Enter Steam ID, profile URL, or Dota 2 player name">
+            <button id="search-btn"><i class="fas fa-search"></i> Search</button>
+        </div>
+        
+        <div class="content">
+            <div class="player-info" id="player-container">
+                <div class="player-details" id="player-details">
+                    <!-- Player details will be displayed here -->
+                    <div class="initial-message">
+                        <div class="welcome-icon">
+                            <i class="fas fa-user-circle player-icon-large"></i>
+                        </div>
+                        <h2>Welcome to DOTA<span class="plus-symbol">+</span>Tracker</h2>
+                        <p>Enter a Steam ID or Dota 2 player name to view match history</p>
+                        <div class="search-examples">
+                            <p>Examples:</p>
+                            <div class="example-buttons">
+                                <code>76561198044963552</code>
+                                <code>kiseki</code>
+                                <code>https://steamcommunity.com/id/kiseki</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="matches-header" style="display: none;">
+                <h3><i class="fas fa-history"></i> Recent Matches</h3>
+            </div>
+            <div class="matches-container" id="matches-container">
+                <!-- Match history will be displayed here -->
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Created by <a href="#" target="_blank">kise</a> | Powered by OpenDota API</p>
+            <p class="disclaimer">DOTA+Tracker is not affiliated with Valve Corporation</p>
+        </footer>
+    </div>
+    
+    <!-- Match modal for detailed statistics -->
+    <div id="match-modal" class="match-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
